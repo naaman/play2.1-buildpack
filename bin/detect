@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [ -f conf/application.conf ]; then
+  echo "Play2"
+  exit 0
+else
+  echo "no"
+  exit 1
+end
