@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-if [ -f conf/application.conf ]; then
+BUILD_DIR=$1
+if [ -f $BUILD_DIR/conf/application.conf ]; then
   echo "Play2"
   exit 0
 else
