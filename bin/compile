@@ -4,7 +4,15 @@ BUILD_DIR=$1
 PLAY_URL="http://heroku-jvm-buildpack-play-test.s3.amazonaws.com/play-2.1.0.tar.gz"
 PLAY_DIR=$BUILD_DIR/vendor/play
 
+# vendor play
 mkdir -p $PLAY_DIR
 curl --silent --location $PLAY_URL | tar -xz -C $PLAY_DIR
 
+# setup $PATH
+export PATH=$PLAY_DIR:$PATH
+PROFILE_PATH="$BUILD_DIR/.profile.d/play.sh"
+mkdir -p $(dirname $PROFILE_PATH)
+echo 'export PATH="vendor/play:$PATH"' >> $PROFILE_PATH
+
+# build app
 play compile stage
