@@ -1,9 +1,2 @@
 #!/usr/bin/env bash
-BUILD_DIR=$1
-if [ -f $BUILD_DIR/conf/application.conf ]; then
-  echo "Play2"
-  exit 0
-else
-  echo "no"
-  exit 1
-end
+echo "Play2" && exit 0
