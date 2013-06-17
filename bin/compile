@@ -15,4 +15,5 @@ mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="vendor/play:$PATH"' >> $PROFILE_PATH
 
 # build app
+cd $BUILD_DIR
 play compile stage
